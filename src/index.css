@@ -15,4 +15,48 @@
 }
 body {
   font-family: var(--fontFamily);
+  background-color: var(--backgroundColor);
+}
+img {
+  cursor: pointer;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  width: 95%;
+  margin: 20px auto 50px;
+}
+header img {
+  margin-right: 50px;
+  width: 34px;
+  height: 34px;
+}
+header input {
+  color: var(--otherTexts);
+  font-weight: 600px;
+  font-size: 14px;
+  line-height: 18px;
+  background-color: var(--navBackground);
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding-left: 50px;
+}
+header div {
+  position: relative;
+}
+header div img {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.overlay, .menu {
+  display: none;
 }
