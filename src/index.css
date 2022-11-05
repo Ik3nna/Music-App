@@ -4,10 +4,12 @@
   box-sizing: border-box;
 }
 :root {
-  --backgroundColor: #1E1E1E;
+  --backgroundColor: #1D2123;
+  --filter: drop-shadow(0px -25px 100px rgba(16, 16, 16, 0.51));
   --iconsBackground: #1A1E1F;
   --navBackground: #1D2123;
   --mainBackground: #609EAF;
+  --activeLink: #FACD66;
   --mainTexts: #EFEEE0;
   --subTexts: #FFFFFF;
   --otherTexts: rgba(255, 255, 255, 0.5);
@@ -16,10 +18,25 @@
 body {
   font-family: var(--fontFamily);
   background-color: var(--backgroundColor);
+  filter: var(--filter);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 img {
   cursor: pointer;
 }
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+
 
 /* Header */
 header {
@@ -27,7 +44,7 @@ header {
   align-items: center;
   max-width: 100%;
   width: 95%;
-  margin: 20px auto 50px;
+  margin: 20px auto 30px;
 }
 header img {
   margin-right: 50px;
