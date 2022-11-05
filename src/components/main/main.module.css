@@ -4,6 +4,7 @@
     width: 96%;
     margin: auto;
     display: flex;
+    justify-content: flex-start;
 }
 .list {
     margin-bottom: 20px;
@@ -47,10 +48,10 @@ span{
     margin-left: 30px;
     background-color: var(--mainBackground);
     padding: 20px;
-    max-width: 686px;
     max-height: 373px;
-    width: 100%;
+    width: 60%;
     border-radius: 30px;
+    position: relative;
 }
 .container article .content {
     color: var(--subTexts);
@@ -94,21 +95,99 @@ span{
     margin-left: 25%;
     margin-right: 8%;
 }
-.container article .pexel {
-    position: relative;
-}
 .container article .pexel img:nth-of-type(1) {
    position: absolute;
-   top: -20px;
-   left: -167px;
+   top: 0;
+   right: 0;
    border-radius: 30px;
 }
 .container article .pexel img:nth-of-type(2) {
     position: absolute;
-    top: -199px;
+    top: -179px;
+    right: 0;
     width: 369px;
 }
 
 
+/* Scrollbar */
+.scroll::-webkit-scrollbar {
+    width: 14px;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background: var(--otherTexts);
+    border-radius:  10px;
+    background-clip: padding-box;
+    border: 5px solid transparent;
+}
+
+
 /* Article 2 */
+.playlistContent {
+    margin-left: 20px;
+}
+.playlistContent h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: var(--mainTexts);
+    margin-bottom: 20px;
+}
+.scroll {
+    max-height: 350px;
+    overflow-y: scroll;
+}
+.playlistContainer {
+    width: 100%;
+    background-color: var(--iconsBackground);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.playlistContainer img {
+    max-width: 90px;
+    width: 100%;
+    height: 90px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.playlistContent h4 {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    color: var(--subTexts);
+}
+.playlistInfo {
+    display: flex;
+    flex-direction: column; 
+}
+.playlistInfo p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--otherTexts);
+}
+.playlistInfo p:nth-of-type(2) {
+    color: var(--subTexts);
+    margin-top: 20px;
+}
+.circle {
+    width: 37px;
+    height: 37px;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    cursor: pointer;
+    position: relative;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.playlistContainer .likes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+}
+
 

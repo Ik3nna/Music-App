@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./main.module.css";
+import { useGlobalContext } from "../context";
 import { NavLink } from "react-router-dom";
 import { Home3, Radio, MusicLibrary2, VideoHorizontal, Profile, LogoutCurve, Heart } from "iconsax-react";
 
 function Main () {
-    
+    const { playlist } = useGlobalContext();
 
     return(
         <section className={styles.container}>
@@ -88,10 +89,47 @@ function Main () {
                 </div>
             </article>
 
-            <article>
-                
+            <article className={styles.playlistContent}>
+                <h2>Top charts</h2>
+
+                <div className={styles.scroll}>
+                    {playlist.map((item)=>{
+                        const { id, title, info, cover, files } = item;
+
+                        const totalMin = files.reduce((total, file)=>{
+                            const duration = +file.duration.split(":")[0];
+                            total += duration;
+
+                            return total;
+                        },0);
+
+                        const totalSec = files.reduce((total, file)=>{
+                            const duration = +file.duration.split(":")[1];
+                            total += duration;
+                            return total % 60;
+                        },0);
+
+                        return(
+                            <div key={id} className={styles.playlistContainer}>
+                                <img src={cover} alt={title} />
+
+                                <div className={styles.playlistInfo}>
+                                    <h4>{title}</h4>
+                                    <p>{info.substring(0, 40)}...</p>
+                                    <p>{(totalMin < 10) ? `0${totalMin}` : totalMin}: {totalSec}</p>
+                                </div>
+
+                                <div className={styles.circle}>
+                                    <Heart size="19" color="#facd66" className={styles.likes} />
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </article>
         </section>
+
+        
     );
 }
 

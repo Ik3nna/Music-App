@@ -15,6 +15,10 @@
   --otherTexts: rgba(255, 255, 255, 0.5);
   --fontFamily: 'Quicksand', sans-serif;
 }
+body, html {
+  overflow-x: hidden;
+  position: relative;
+}      
 body {
   font-family: var(--fontFamily);
   background-color: var(--backgroundColor);
@@ -35,7 +39,6 @@ button {
   cursor: pointer;
   background: none;
 }
-
 
 
 /* Header */
