@@ -124,6 +124,7 @@ span{
 /* Article 2 */
 .playlistContent {
     margin-left: 20px;
+    width: 40%;
 }
 .playlistContent h2 {
     font-weight: 700;

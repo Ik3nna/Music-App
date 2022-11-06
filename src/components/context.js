@@ -8,7 +8,13 @@ export const AppProvider = ({ children })=>{
     const [newRelease,setNewRelease] = useState([]);
     const [popular,setPopular] = useState([]);
     const [playlist,setPlaylist] = useState([]);
+    // const [likes,setLikes] = useState([]);
+    const Arr = {
+        likes: [],
+        collections: []
+    };
 
+// Consumption of API
     const fetchData = (type)=>{
         fetch(baseURL + type)
         .then(response => {
@@ -47,7 +53,7 @@ export const AppProvider = ({ children })=>{
 
     return(
         <AppContext.Provider value={{
-            newRelease, popular, playlist
+            newRelease, popular, playlist, Arr
         }}>
             {children}
         </AppContext.Provider>

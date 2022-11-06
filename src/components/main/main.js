@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./main.module.css";
 import { useGlobalContext } from "../context";
 import { NavLink } from "react-router-dom";
+import Playlist from "./singlePlaylist";
 import { Home3, Radio, MusicLibrary2, VideoHorizontal, Profile, LogoutCurve, Heart } from "iconsax-react";
 
 function Main () {
@@ -85,7 +86,7 @@ function Main () {
 
                 <div className={styles.pexel}>
                     <img src="/assets/Vector.svg" alt="vector" />
-                    <img src="/assets/Pexels-Photo.svg" alt="pexels-photo" />
+                    <img src="/assets/Pexels-Photo.svg" alt="pexels" />
                 </div>
             </article>
 
@@ -94,35 +95,8 @@ function Main () {
 
                 <div className={styles.scroll}>
                     {playlist.map((item)=>{
-                        const { id, title, info, cover, files } = item;
-
-                        const totalMin = files.reduce((total, file)=>{
-                            const duration = +file.duration.split(":")[0];
-                            total += duration;
-
-                            return total;
-                        },0);
-
-                        const totalSec = files.reduce((total, file)=>{
-                            const duration = +file.duration.split(":")[1];
-                            total += duration;
-                            return total % 60;
-                        },0);
-
                         return(
-                            <div key={id} className={styles.playlistContainer}>
-                                <img src={cover} alt={title} />
-
-                                <div className={styles.playlistInfo}>
-                                    <h4>{title}</h4>
-                                    <p>{info.substring(0, 40)}...</p>
-                                    <p>{(totalMin < 10) ? `0${totalMin}` : totalMin}: {totalSec}</p>
-                                </div>
-
-                                <div className={styles.circle}>
-                                    <Heart size="19" color="#facd66" className={styles.likes} />
-                                </div>
-                            </div>
+                            <Playlist key={item.id} data={item} {...item} />
                         );
                     })}
                 </div>
