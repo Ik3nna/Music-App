@@ -173,7 +173,7 @@ span{
     color: var(--subTexts);
     margin-top: 20px;
 }
-.circle {
+.circle, .circleLove {
     width: 37px;
     height: 37px;
     border-radius: 100%;
@@ -183,12 +183,27 @@ span{
     margin-left: 40px;
     margin-right: 10px;
 }
+.circleLove {
+    animation: bounce 500ms ease-in-out;
+}
 .playlistContainer .likes {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     margin: 0;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 

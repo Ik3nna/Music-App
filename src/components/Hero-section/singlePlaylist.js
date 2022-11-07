@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./main.module.css";
 import { useGlobalContext } from "../context";
 import { Heart } from "iconsax-react";
@@ -14,13 +14,13 @@ function Playlist ({ data, title, info, cover, files }) {
 
         setLove((check) => !check);
 
-        if (check) {
-            let arr = {};
-            let innerArr = {...arr,x}
-            Arr.likes.push(innerArr);
-        } else {
-            
-        }
+        if (check && !love) {
+            Arr.likes.push(x); 
+        }  
+        if (love) {
+            Arr.likes = Arr.likes.filter((item)=>item.id !== x.id);
+            console.log(Arr.likes)
+        }     
     }
 
     const totalMin = files.reduce((total, file)=>{
@@ -46,7 +46,7 @@ function Playlist ({ data, title, info, cover, files }) {
                 <p>{(totalMin < 10) ? `0${totalMin}` : totalMin}: {totalSec}</p>
             </div>
 
-            <div className={styles.circle} onClick={()=>handleLikes(data)}>
+            <div className={love ? styles.circleLove : styles.circle} onClick={()=>handleLikes(data)}>
                 {love ?
                     <Heart variant="Bold" size="19" color="#E5524A" className={styles.likes} />
                     :<Heart size="19" color="#facd66" className={styles.likes} />

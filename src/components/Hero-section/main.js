@@ -102,7 +102,6 @@ function Main () {
                 </div>
             </article>
         </section>
-
         
     );
 }
