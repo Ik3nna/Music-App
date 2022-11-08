@@ -12,7 +12,7 @@ function Release() {
                 New releases.
             </h2>
 
-            <article>
+            <article className={styles.scroll}>
                 {newRelease.map((item)=>{
                     return(
                         <SingleRelease key={item.id} {...item} />

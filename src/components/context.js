@@ -1,4 +1,3 @@
-import { UserSearch } from "iconsax-react";
 import React, { useState, useEffect, useContext } from "react";
 
 const AppContext = React.createContext();
@@ -8,7 +7,6 @@ export const AppProvider = ({ children })=>{
     const [newRelease,setNewRelease] = useState([]);
     const [popular,setPopular] = useState([]);
     const [playlist,setPlaylist] = useState([]);
-    // const [likes,setLikes] = useState([]);
     const Arr = {
         likes: [],
         collections: []

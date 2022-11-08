@@ -16,8 +16,8 @@
   --fontFamily: 'Quicksand', sans-serif;
 }
 body, html {
-  overflow-x: hidden;
   position: relative;
+  overflow-x: hidden;
 }      
 body {
   font-family: var(--fontFamily);
@@ -43,33 +43,39 @@ button {
 
 /* Header */
 header {
+  background-color: var(--navBackground);
+  filter: var(--filter);
+}
+.head {
   display: flex;
   align-items: center;
   max-width: 100%;
   width: 95%;
-  margin: 20px auto 30px;
+  margin: 0 auto 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-header img {
+.head img {
   margin-right: 50px;
   width: 34px;
   height: 34px;
 }
-header input {
+.head input {
   color: var(--otherTexts);
   font-weight: 600px;
   font-size: 14px;
   line-height: 18px;
-  background-color: var(--navBackground);
+  background-color: var(--iconsBackground);
   padding: 10px;
   outline: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   padding-left: 50px;
 }
-header div {
+.head div {
   position: relative;
 }
-header div img {
+.head div img {
   position: absolute;
   width: 16px;
   height: 16px;

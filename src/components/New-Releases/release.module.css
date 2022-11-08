@@ -1,6 +1,59 @@
 .releases {
-    margin-top: 50px;
+    margin: 50px 0px 50px 8%;
     position: relative;
-    max-width: 100%;
-    width: 96%;
+}
+.releases h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: var(--mainTexts);
+    margin-bottom: 20px;
+}
+
+
+/* Scroll bar */
+.scroll::-webkit-scrollbar {
+    width: 14px;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background: var(--otherTexts);
+    border-radius:  10px;
+    background-clip: padding-box;
+    border: 6px solid transparent;
+}
+
+
+/* Single Release */
+.releases .scroll {
+    overflow-x: scroll;
+    display: flex;
+    width: 100%;
+}
+.content {
+   margin-right: 30px;
+   flex-shrink: 0;
+   overflow: none;
+}
+.content img {
+    max-width: 170px;
+    width: 100%;
+    height: 170px;
+    border-radius: 25px;
+}
+.active {
+    border: 4px solid var(--activeLink);
+}
+.content p:nth-of-type(1) {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--mainTexts);
+    padding: 5px;
+}
+.content p:nth-of-type(2) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--otherTexts);
+    padding-left: 5px;
 }
