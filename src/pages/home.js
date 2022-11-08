@@ -1,6 +1,7 @@
 import React from "react";
 import Main from "../components/Hero-section/main";
 import Release from "../components/New-Releases/release";
+import Popular from "../components/Popular-section/popular";
 
 function Home () {
 
@@ -8,6 +9,7 @@ function Home () {
         <>
             <Main />
             <Release />
+            <Popular />
         </>
     );
 }
