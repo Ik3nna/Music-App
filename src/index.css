@@ -22,7 +22,6 @@ body, html {
 body {
   font-family: var(--fontFamily);
   background-color: var(--backgroundColor);
-  filter: var(--filter);
 }
 ul {
   list-style: none;
@@ -42,16 +41,20 @@ button {
 
 
 /* Header */
-header {
+.fixed-nav {
   background-color: var(--navBackground);
-  filter: var(--filter);
+  width: 100%;
+  z-index: 5;
+  position: fixed;
+  top: 0;
 }
+
 .head {
   display: flex;
   align-items: center;
   max-width: 100%;
   width: 95%;
-  margin: 0 auto 20px;
+  margin: auto;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -70,18 +73,18 @@ header {
   outline: none;
   border: none;
   border-radius: 15px;
-  padding-left: 50px;
+  padding-left: 40px;
 }
-.head div {
+.head .search {
+  display: flex;
+  align-items: center;
   position: relative;
 }
-.head div img {
-  position: absolute;
+.head .search img {
   width: 16px;
   height: 16px;
-  left: 3%;
-  top: 50%;
-  transform: translateY(-50%);
+  position: absolute;
+  left: 10px;
 }
 .overlay, .menu {
   display: none;
