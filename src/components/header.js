@@ -1,15 +1,16 @@
 import React from "react";
+import { useGlobalContext } from "./context";
 import useSticky from "./utils";
 
 function Header () {
     const { sticky, stickyRef } = useSticky();
+    const { active, setActive } = useGlobalContext();
 
     return(
-        <>
-            <header ref={stickyRef} className={`${sticky && "fixed-nav"}`}>
+        <section className={`${active ? "active" : null}`} >
+            <header ref={stickyRef} className={`${active ? "active" : null} ${sticky && "fixed-nav"}`}>
                 <div className="head">
-                    <div className="overlay"></div>
-                    <img className="menu" src="/assets/menu 1.svg" alt="menu" />
+                    <img className="menu" src="/assets/menu 1.svg" alt="menu" onClick={()=>setActive(!active)} />
 
                     <img src="/assets/logo.svg" alt="logo" />
 
@@ -20,10 +21,12 @@ function Header () {
                 </div>
             </header>
 
+            <div className="overlay"></div>
+
             <div style={{
             height: sticky ? `${stickyRef.current?.clientHeight}px` : '0px',
             }} />
-        </>
+        </section>
     );
 }
 

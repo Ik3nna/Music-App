@@ -1,62 +1,16 @@
 import React from "react";
 import styles from "./main.module.css";
 import { useGlobalContext } from "../context";
-import { NavLink } from "react-router-dom";
 import Playlist from "./singlePlaylist";
-import { Home3, Radio, MusicLibrary2, VideoHorizontal, Profile, LogoutCurve, Heart } from "iconsax-react";
+import { Heart } from "iconsax-react";
+import NavIcons from "./Nav-icons";
 
 function Main () {
     const { playlist } = useGlobalContext();
 
     return(
         <section className={styles.container}>
-            <aside>
-                <ul className={styles.list}>
-                    <li>
-                        <NavLink to="/home" className={({isActive})=> isActive ? styles.activeLink : null}>
-                            <Home3 variant="Bold" size="27" />
-                            <span>Home</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/collections" className={({isActive})=> isActive ? styles.activeLink : null}>
-                            <MusicLibrary2 variant="Bold" size="27" />
-                            <span>My collections</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/radio" className={({isActive})=> isActive ? styles.activeLink : null}>
-                            <Radio variant="Bold" size="27" />
-                            <span>Radio</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/video" className={({isActive})=> isActive ? styles.activeLink : null}>
-                            <VideoHorizontal variant="Bold" size="27" />
-                            <span>Video</span>
-                        </NavLink>
-                    </li>
-                </ul>
-
-                <ul className={styles.secondList}>
-                    <li>
-                        <NavLink to="/profile" className={({isActive})=> isActive ? styles.activeLink : null}>
-                            <Profile variant="Bold" size="27" />
-                            <span>Profile</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <button>
-                            <LogoutCurve variant="Bold" size="27" />
-                            <span>Logout</span>
-                        </button>
-                    </li>
-                </ul>
-            </aside>
+            <NavIcons />
 
             <article>
                 <div className={styles.content}>
@@ -87,6 +41,7 @@ function Main () {
                 <div className={styles.pexel}>
                     <img src="/assets/Vector.svg" alt="vector" />
                     <img src="/assets/Pexels-Photo.svg" alt="pexels" />
+                    <img src="/assets/Vector-mobile.svg" alt="pexels-mobile" />
                 </div>
             </article>
 
@@ -102,7 +57,6 @@ function Main () {
                 </div>
             </article>
         </section>
-        
     );
 }
 

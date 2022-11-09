@@ -41,19 +41,21 @@ button {
 
 
 /* Header */
+header {
+  position: relative;
+  z-index: 6;
+}
 .fixed-nav {
   background-color: var(--navBackground);
   width: 100%;
-  z-index: 5;
   position: fixed;
   top: 0;
 }
-
 .head {
   display: flex;
   align-items: center;
   max-width: 100%;
-  width: 95%;
+  width: 94%;
   margin: auto;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -86,6 +88,34 @@ button {
   position: absolute;
   left: 10px;
 }
-.overlay, .menu {
+.menu {
   display: none;
+}
+
+@media (max-width: 767px) {
+  .head img {
+    margin-right: 4%;
+  }
+  .menu {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 24px;
+    z-index: 10;
+  }
+  .overlay {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-color: var(--iconsBackground);
+  }
+  .active .overlay {
+    pointer-events: all;
+    opacity: 0.5;
+  }
 }

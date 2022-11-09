@@ -63,3 +63,14 @@
     margin: auto;
     margin-bottom: 10px;
 }
+
+@media (min-width: 768px) and (max-width: 1159px) {
+    .popular {
+        margin-left: 9%;
+    }
+}
+@media (max-width: 767px) {
+    .popular {
+        margin-left: 4%;
+    }
+ }

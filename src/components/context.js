@@ -4,6 +4,7 @@ const AppContext = React.createContext();
 const baseURL = "https://musica-api.up.railway.app/";
 
 export const AppProvider = ({ children })=>{
+    const [active, setActive] = useState(false);
     const [newRelease,setNewRelease] = useState([]);
     const [popular,setPopular] = useState([]);
     const [playlist,setPlaylist] = useState([]);
@@ -51,7 +52,7 @@ export const AppProvider = ({ children })=>{
 
     return(
         <AppContext.Provider value={{
-            newRelease, popular, playlist, Arr
+            active, setActive, newRelease, popular, playlist, Arr
         }}>
             {children}
         </AppContext.Provider>

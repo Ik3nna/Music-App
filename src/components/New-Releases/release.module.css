@@ -62,3 +62,14 @@
     margin: auto;
     margin-bottom: 10px;
 }
+
+@media (min-width: 768px) and (max-width: 1159px) {
+    .releases {
+        margin: 30px 0px 30px 9%;
+    }
+}
+@media (max-width: 767px) {
+   .releases {
+        margin: 30px 0px 30px 4%;
+   }
+}
