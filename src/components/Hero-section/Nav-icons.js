@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../context";
 import { NavLink } from "react-router-dom";
-import { Home3, Radio, MusicLibrary2, VideoHorizontal, Profile, LogoutCurve, Heart } from "iconsax-react";
+import { Home3, Radio, MusicLibrary2, VideoHorizontal, Profile, LogoutCurve } from "iconsax-react";
 import styles from "./Nav-icons.module.css";
 
 function NavIcons () {

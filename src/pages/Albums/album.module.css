@@ -1,0 +1,67 @@
+.albums {
+    max-width: 100%;
+    width: 96%;
+    margin: auto;
+    display: flex;
+}
+.albums article:nth-of-type(1) {
+    display: flex;
+    max-width: 100%;
+    width: 85%;
+    margin: 30px auto;
+}
+.albums article:nth-of-type(1) img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 36px;
+    height: 300px;
+}
+.content {
+    margin-left: 20px;
+    margin-top: 70px;
+}
+.content h2 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 42px;
+    color: #A4C7C6;
+}
+.content p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--mainTexts);
+}
+.info {
+    margin: 10px 0px;
+    width: 500px;
+}
+.buttons {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+.play, .collection {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(5px);
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 30px;
+}
+.play p, .collection p {
+    margin-left: 10px;
+}
+.buttons div:nth-of-type(3) {
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(5px);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

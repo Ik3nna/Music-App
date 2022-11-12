@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./main.module.css";
 import { useGlobalContext } from "../context";
+import NavIcons from "./Nav-icons";
 import Playlist from "./singlePlaylist";
 import { Heart } from "iconsax-react";
-import NavIcons from "./Nav-icons";
 
 function Main () {
     const { playlist } = useGlobalContext();
@@ -11,7 +11,7 @@ function Main () {
     return(
         <section className={styles.container}>
             <NavIcons />
-
+            
             <article>
                 <div className={styles.content}>
                     <p className={styles.playlist}>Currated playlist</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "./context";
+import { Link } from "react-router-dom";
 import useSticky from "./utils";
 
 function Header () {
@@ -11,8 +12,10 @@ function Header () {
             <header ref={stickyRef} className={`${active ? "active" : null} ${sticky && "fixed-nav"}`}>
                 <div className="head">
                     <img className="menu" src="/assets/menu 1.svg" alt="menu" onClick={()=>setActive(!active)} />
-
-                    <img src="/assets/logo.svg" alt="logo" />
+                    
+                    <Link to="/">
+                        <img src="/assets/logo.svg" alt="logo" />
+                    </Link>
 
                     <div className="search">
                         <img src="/assets/search.svg" alt="search" />
