@@ -41,18 +41,21 @@ export const AppProvider = ({ children })=>{
                 setPlaylist(data);
             }
         })
-        .catch(error => console.log(error.message))
+        .catch(error =>{
+            console.log(error.message)
+        })
     }
 
     useEffect(()=>{
         fetchData("new");
         fetchData("popular");
         fetchData("playlist");
-    },[])
+    },[]);
+
 
     return(
         <AppContext.Provider value={{
-            active, setActive, newRelease, popular, playlist, Arr
+            active, setActive, newRelease, popular, playlist, Arr,
         }}>
             {children}
         </AppContext.Provider>
