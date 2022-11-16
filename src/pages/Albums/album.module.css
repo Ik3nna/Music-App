@@ -1,8 +1,18 @@
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+}
 .albums {
     max-width: 100%;
     width: 96%;
     margin: auto;
     display: flex;
+    position: relative;
 }
 .albums article:nth-of-type(1) {
     display: flex;
@@ -34,7 +44,7 @@
 }
 .info {
     margin: 10px 0px;
-    width: 500px;
+    width: 70%;
 }
 .buttons {
     cursor: pointer;
@@ -64,4 +74,75 @@
     justify-content: center;
     align-items: center;
 }
+.circleLove {
+    animation: bounce 500ms ease-in-out;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.playBtn {
+    max-width: 100%;
+    width: 96%;
+    margin: auto;
+}
+.playBtn article {
+    display: flex;
+    max-width: 100%;
+    width: 85%;
+    margin: 15px auto 0;
+    padding: 20px;
+    backdrop-filter: var(--backdrop);
+    background: var(--albumBackground);
+    border-radius: 15px;
+    align-items: center;
+    color: var(--subTexts);
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: var(--fontFamily);
+}
+.playBtn article div:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+}
+.playBtn img {
+    min-width: 80px;
+    width: 50%;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+.playBtn article div:nth-of-type(3) {
+    position: absolute;
+    top: 42%;
+    left: 60%;
+    transition: translate(-60%, -42%);
+}
+.playBtn article div:nth-of-type(4) {
+    position: absolute;
+    top: 42%;
+    left: 80%;
+    transition: translate(-80%, -42%);
+}
+.playBtn article div:nth-of-type(5) {
+    position: absolute;
+    top: 38%;
+    left: 95%;
+    transition: translate(-95%, -38%);
+    transform: rotate(90deg);
+}
+
+
 
