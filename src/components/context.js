@@ -52,10 +52,27 @@ export const AppProvider = ({ children })=>{
         fetchData("playlist");
     },[]);
 
+// Likes
+    const addToLikes = (playlist)=> {
+        if (Arr.likes.find((item)=> item.id === playlist.id)) {
+            Arr.likes = Arr.likes.filter((item)=>item.id !== playlist.id);
+        } else {
+            Arr.likes.push(playlist); 
+        }
+    }
+
+//  Collection
+    const addToCollection = (playlist)=> {
+        if (Arr.collections.find((item)=> item.id === playlist.id)) {
+            Arr.collections = Arr.collections.filter((item)=>item.id !== playlist.id);
+        } else {
+            Arr.collections.push(playlist); 
+        }
+    }
 
     return(
         <AppContext.Provider value={{
-            active, setActive, newRelease, popular, playlist, Arr,
+            active, setActive, newRelease, popular, playlist, Arr, addToLikes, addToCollection
         }}>
             {children}
         </AppContext.Provider>

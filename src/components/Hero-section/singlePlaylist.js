@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./main.module.css";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { Heart } from "iconsax-react";
 
-
 function Playlist ({ id, data, title, cover, files }) {
-    const { playlist, Arr } = useGlobalContext();
+    const { addToLikes, Arr } = useGlobalContext();
+    const [love, setLove] = useState(Arr.likes.find((item)=>item.id === id));
+    
 
-    const [love,setLove] = useState(false);
-
-    const handleLikes = (x)=>{
-        let check = playlist.find((item)=> item.id === x.id);
-        setLove((check) => !check);
-
-        if (check && !love) {
-            Arr.likes.push(x); 
-        }  
-        if (love) {
-            Arr.likes = Arr.likes.filter((item)=>item.id !== x.id);
-            console.log(Arr.likes)
-        }     
+    const handleLikes = ()=>{
+        addToLikes(data);
+        setLove(!love);
     }
 
     const totalMin = files.reduce((total, file)=>{
@@ -38,7 +29,7 @@ function Playlist ({ id, data, title, cover, files }) {
 
     return(
         <div className={styles.playlistContainer}>
-            <Link to={`/album/${id}?love=${love}`}>
+            <Link to={`/album/${id}`}>
                 <img src={cover} alt={title} />
             </Link>
 
@@ -48,7 +39,7 @@ function Playlist ({ id, data, title, cover, files }) {
                 <p>{(totalMin < 10) ? `0${totalMin}` : totalMin}: {totalSec}</p>
             </div>
 
-            <div className={love ? styles.circleLove : styles.circle} onClick={()=>handleLikes(data)}>
+            <div className={`${styles.circle} ${love && styles.circleLove}`} onClick={handleLikes}>
                 {love ?
                     <Heart variant="Bold" size="19" color="#E5524A" className={styles.likes} />
                     :<Heart size="19" color="#facd66" className={styles.likes} />

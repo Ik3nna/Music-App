@@ -9,6 +9,8 @@
   --iconsBackground: #1A1E1F;
   --navBackground: #1D2123;
   --mainBackground: #609EAF;
+  --albumBackground: rgba(51, 55, 59, 0.37);
+  --backdrop: blur(5px);
   --activeLink: #FACD66;
   --mainTexts: #EFEEE0;
   --subTexts: #FFFFFF;
