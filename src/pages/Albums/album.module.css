@@ -19,12 +19,26 @@
     max-width: 100%;
     width: 85%;
     margin: 30px auto;
+    position: relative;
 }
 .albums article:nth-of-type(1) img {
-    max-width: 300px;
+    min-width: 300px;
     width: 100%;
     border-radius: 36px;
     height: 300px;
+}
+.arrow {
+    border-radius: 36px;
+    width: 55px;
+    height: 55px;
+    background-color: var(--activeLink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 .content {
     margin-left: 20px;

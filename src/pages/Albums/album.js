@@ -7,7 +7,7 @@ import styles from "./album.module.css";
 
 function Album() {
     const { id } = useParams();
-    const { navigate } = useNavigate();
+    const  navigate = useNavigate();
     const { playlist, Arr, addToLikes, addToCollection } = useGlobalContext();
     const [data, setData] = useState({});
     const [love, setLove] = useState(Arr.likes.find((item)=>item.id === id));
@@ -52,7 +52,13 @@ function Album() {
                                 <NavIcons />
 
                                 <article>
-                                    <img src={cover} alt={title} />
+                                    <div>
+                                        <img src={cover} alt={title} />
+
+                                        <div className={styles.arrow} onClick={()=>navigate(-1)}>
+                                            <ArrowLeft size="30" />
+                                        </div>
+                                    </div>
 
                                     <div className={styles.content}>
                                         <h2>{title}</h2>
