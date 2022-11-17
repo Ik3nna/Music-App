@@ -26,13 +26,13 @@ function Album() {
     useEffect(()=>{
         const data = playlist.find((item)=> item.id === id);
         setData(data);
-    },[playlist])
+    },[playlist, id])
     
     return(
         <>
-            {playlist.map((items)=>{
+            {playlist.map((items, index)=>{
                 if (items.id === id) {
-                    const { id, title, cover, info, files } = items;
+                    const { title, cover, info, files } = items;
 
                     const totalMin = files.reduce((total,file)=>{
                         const duration = +file.duration.split(":")[0];
@@ -42,13 +42,16 @@ function Album() {
                     },0);
 
                     return(
-                        <main className={styles.main} style={{
+                        <main className={styles.main} key={index} style={{
                             backgroundImage: `url(${cover})`,
                             backgroundRepeat: "no-repeat",
                             backgroundSize: "cover", 
-                            position: "relative"
+                            
+                            position: "relative", 
+                            minHeight: "100vh",
+                            height: "100%"
                         }}>
-                            <section key={id} className={styles.albums}>
+                            <section className={styles.albums}>
                                 <NavIcons />
 
                                 <article>
@@ -89,12 +92,12 @@ function Album() {
 
                             <section className={styles.playBtn}>
                                 {files.map((item)=>{
-                                const { id, artist, duration, title, cover, audio } = item;
+                                const { id, artist, duration, title, cover } = item;
                                 return(
                                     <article key={id}>
                                         <div>
                                             <img src={cover} alt={title} />
-                                            <Heart color="#ffffff" cursor="pointer" />
+                                            <Heart color="#ffffff" cursor="pointer" className={styles.heart} />
                                         </div>
 
                                         <div>
