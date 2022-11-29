@@ -1,0 +1,104 @@
+.container {
+    max-width: 100%;
+    width: 96%;
+    margin: auto;
+    position: relative;
+}
+.btnContainer {
+    display: flex;
+    margin-left: 6%;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+.btnContainer div {
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: var(--mainTexts);
+    border: 1px solid var(--mainTexts);
+    border-radius: 27px;
+    opacity: 0.25;
+    font-size: 14px;
+    line-height: 16.8px;
+    flex-shrink: 0;
+    overflow: none;
+}
+.btnContainer .active {
+    background-color: var(--activeLink);
+    color: var(--navBackground);
+    opacity: 1;
+    border: none;
+}
+.display {
+    max-width: 100%;
+    width: 88%;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+}
+
+/* scroll */
+.display::-webkit-scrollbar {
+    width: 14px;
+}
+.display::-webkit-scrollbar-thumb {
+    background: var(--otherTexts);
+    border-radius:  10px;
+    background-clip: padding-box;
+    border: 6px solid transparent;
+}
+
+.likes, .collections {
+    position: relative;
+    color: #000000;
+    position: relative;
+    font-weight: 700;
+}
+.likes p, .collections p {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    opacity: 0;
+}
+.likes:hover p:nth-of-type(1), .collections:hover p:nth-of-type(1) {
+    top: 85%;
+    transform: translateY(-85%);
+    opacity: 1;
+    transition: 0.9s;
+}
+.likes:hover p:nth-of-type(2), .collections:hover p:nth-of-type(2) {
+    top: 90%;
+    transform: translateY(-90%);
+    opacity: 1;
+    transition: 0.5s;
+}
+.likes img, .collections img {
+    width: 234px;
+    height: 234px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .btnContainer {
+        margin-left: 8%;
+    }
+    .display {
+        width: 85%;
+    }
+    .likes img, .collections img {
+        width: 204px;
+        height: 204px;
+    }
+}
+@media (max-width: 767px) {
+    .likes img, .collections img {
+        width: 174px;
+        height: 174px;
+    }
+}

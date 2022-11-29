@@ -5,8 +5,8 @@ import { useGlobalContext } from "../context";
 import { Heart } from "iconsax-react";
 
 function Playlist ({ id, data, title, cover, files }) {
-    const { addToLikes, Arr } = useGlobalContext();
-    const [love, setLove] = useState(Arr.likes.find((item)=>item.id === id));
+    const { addToLikes, likes } = useGlobalContext();
+    const [love, setLove] = useState(likes.find((item)=>item.id === id));
     
 
     const handleLikes = ()=>{

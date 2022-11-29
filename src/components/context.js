@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 
 const AppContext = React.createContext();
-const baseURL = "https://musica-api.up.railway.app/";
+const baseURL = "https://musica-api.onrender.com/";
+const prevLikes = JSON.parse(localStorage.getItem("my-likes"));
+const prevCol = JSON.parse(localStorage.getItem("my-collection"));
 
 export const AppProvider = ({ children })=>{
     const [active, setActive] = useState(false);
     const [newRelease,setNewRelease] = useState([]);
     const [popular,setPopular] = useState([]);
     const [playlist,setPlaylist] = useState([]);
-    const Arr = {
-        likes: [],
-        collections: []
-    };
+    const [likes, setLikes] = useState(prevLikes ? prevLikes : []);
+    const [collections, setCollections] = useState(prevCol ? prevCol : [])
 
 // Consumption of API
     const fetchData = (type)=>{
@@ -54,25 +54,33 @@ export const AppProvider = ({ children })=>{
 
 // Likes
     const addToLikes = (playlist)=> {
-        if (Arr.likes.find((item)=> item.id === playlist.id)) {
-            Arr.likes = Arr.likes.filter((item)=>item.id !== playlist.id);
+        if (likes.find((item)=> item.id === playlist.id)) {
+            const newLikes = likes.filter((item)=>item.id !== playlist.id);
+            setLikes(newLikes);
+            localStorage.setItem("my-collection", JSON.stringify(newLikes));
         } else {
-            Arr.likes.push(playlist); 
+            const newLikes = [...likes, playlist] 
+            setLikes(newLikes)
+            localStorage.setItem("my-collection", JSON.stringify(newLikes));
         }
     }
 
 //  Collection
     const addToCollection = (playlist)=> {
-        if (Arr.collections.find((item)=> item.id === playlist.id)) {
-            Arr.collections = Arr.collections.filter((item)=>item.id !== playlist.id);
+        if (collections.find((item)=> item.id === playlist.id)) {
+            const newcol = collections.filter((item)=>item.id !== playlist.id);
+            setCollections(newcol);
+            localStorage.setItem("my-collection", JSON.stringify(newcol));
         } else {
-            Arr.collections.push(playlist); 
+            const newcol = [...collections, playlist] 
+            setCollections(newcol);
+            localStorage.setItem("my-collection", JSON.stringify(newcol));
         }
     }
 
     return(
         <AppContext.Provider value={{
-            active, setActive, newRelease, popular, playlist, Arr, addToLikes, addToCollection
+            active, setActive, newRelease, popular, playlist, likes, collections, addToLikes, addToCollection
         }}>
             {children}
         </AppContext.Provider>

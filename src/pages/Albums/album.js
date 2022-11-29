@@ -8,10 +8,10 @@ import styles from "./album.module.css";
 function Album() {
     const { id } = useParams();
     const  navigate = useNavigate();
-    const { playlist, Arr, addToLikes, addToCollection } = useGlobalContext();
+    const { playlist, likes, collections, addToLikes, addToCollection } = useGlobalContext();
     const [data, setData] = useState({});
-    const [love, setLove] = useState(Arr.likes.find((item)=>item.id === id));
-    const [collect, setCollect] = useState(Arr.collections.find((item)=>item.id === id));
+    const [love, setLove] = useState(likes.find((item)=>item.id === id));
+    const [collect, setCollect] = useState(collections.find((item)=>item.id === id));
 
     const handleLikes = ()=> {
         setLove(!love);
