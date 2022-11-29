@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavIcons from "../../components/Hero-section/Nav-icons";
 import { useGlobalContext } from "../../components/context";
 import styles from "./collections.module.css";
+import { Play } from "iconsax-react";
 
 function Collection () {
     const { likes, collections } = useGlobalContext();
@@ -37,6 +38,7 @@ function Collection () {
                                     <img src={cover} alt ={title} />
                                     <p>{title}</p>
                                     <p>{files[0].artist}</p>
+                                    <Play className={styles.play} variant="Bold" size="24" color="#FACD66" />
                                 </div>
                             );
                         }) 
@@ -48,6 +50,7 @@ function Collection () {
                                     <img src={cover} alt ={title} />
                                     <p>{title}</p>
                                     <p>{files[0].artist}</p>
+                                    <Play className={styles.play} variant="Bold" size="24" color="#FACD66" />
                                 </div>
                             );
                         })
