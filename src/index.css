@@ -90,6 +90,10 @@ header {
   position: absolute;
   left: 10px;
 }
+#close {
+  position: absolute;
+  right: 10px;
+}
 .menu {
   display: none;
 }

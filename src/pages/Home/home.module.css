@@ -1,0 +1,51 @@
+.none, .found {
+    max-width: 100%;
+    width: 96%;
+    margin: auto;
+}
+.none h2 {
+    text-align: center;
+    padding-top: 100px;
+    font-weight: 700;
+    color: var(--mainTexts);
+    width: 250px;
+    margin: auto;
+}
+
+
+/* Content */
+.content {
+    margin-left: 8%;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--mainTexts);
+}
+.content img {
+    max-width: 170px;
+    width: 100%;
+    height: 170px;
+    border-radius: 25px;
+    margin-top: 30px;
+}
+.content p:nth-of-type(1) {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--mainTexts);
+    padding: 5px;
+}
+.content p:nth-of-type(2) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--otherTexts);
+    padding-left: 5px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1159px) {
+    .content {
+        margin-left: 12%;
+    }
+}

@@ -1,11 +1,27 @@
 import React from "react";
 import { useGlobalContext } from "./context";
 import { Link } from "react-router-dom";
+import { CloseCircle } from "iconsax-react";
 import useSticky from "./utils";
 
 function Header () {
     const { sticky, stickyRef } = useSticky();
-    const { active, setActive } = useGlobalContext();
+    const { active, setActive, searchMusic, closeSearch, searchText, setSearchText } = useGlobalContext();
+    
+    const handleSubmit = (e)=> {
+        e.preventDefault();
+
+        searchMusic(searchText);
+    }
+
+    const handleClick = ()=> {
+        closeSearch();
+        setSearchText("");
+    }
+
+    if (searchText === "") {
+        closeSearch();
+    }
 
     return(
         <section className={`${active ? "active" : null}`} >
@@ -17,10 +33,11 @@ function Header () {
                         <img src="/assets/logo.svg" alt="logo" />
                     </Link>
 
-                    <div className="search">
+                    <form className="search" onSubmit={handleSubmit}>
                         <img src="/assets/search.svg" alt="search" />
-                        <input type="text" placeholder="Search artists" />
-                    </div>
+                        <input type="text" placeholder="Search artists" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}  />
+                        <CloseCircle onClick={handleClick} style={{ display: searchText !== "" ? "block" : "none" }} size="30" color="#E5524A" cursor="pointer" id="close" />
+                    </form>
                 </div>
             </header>
 

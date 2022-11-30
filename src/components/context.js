@@ -10,6 +10,7 @@ export const AppProvider = ({ children })=>{
     const [newRelease,setNewRelease] = useState([]);
     const [popular,setPopular] = useState([]);
     const [playlist,setPlaylist] = useState([]);
+    const [searchText, setSearchText] = useState("");
     const [likes, setLikes] = useState(prevLikes ? prevLikes : []);
     const [collections, setCollections] = useState(prevCol ? prevCol : [])
 
@@ -52,6 +53,27 @@ export const AppProvider = ({ children })=>{
         fetchData("playlist");
     },[]);
 
+// Search for songs
+    const [searchData, setSearchData] = useState([]);
+    const [openSearch, setOpenSearch] = useState(false);
+
+    useEffect(()=>{
+        setSearchData([...newRelease, ...popular]);
+    },[newRelease, popular]);
+
+    const searchMusic = (data)=> {
+        const searched = [...newRelease, ...popular].filter((music) =>
+            music.artist.toLowerCase().includes(data.toLowerCase()) ||
+            music.title.toLowerCase().includes(data.toLowerCase())
+        );
+        setSearchData(searched);
+        setOpenSearch(true);
+    }
+
+    const closeSearch = () => {
+        setOpenSearch(false);
+    };
+
 // Likes
     const addToLikes = (playlist)=> {
         if (likes.find((item)=> item.id === playlist.id)) {
@@ -80,7 +102,8 @@ export const AppProvider = ({ children })=>{
 
     return(
         <AppContext.Provider value={{
-            active, setActive, newRelease, popular, playlist, likes, collections, addToLikes, addToCollection
+            active, setActive, newRelease, popular, playlist, likes, collections, addToLikes, addToCollection,
+            searchMusic, closeSearch, openSearch, searchData, searchText, setSearchText
         }}>
             {children}
         </AppContext.Provider>

@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./pages/home";
+import Home from "./pages/Home/home";
 import Header from "./components/header";
 import Album from "./pages/Albums/album";
 import Collection from "./pages/Collections/collections";
