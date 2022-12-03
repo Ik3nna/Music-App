@@ -205,7 +205,7 @@
         background: var(--otherTexts);
         border-radius:  10px;
         background-clip: padding-box;
-        border: 6px solid transparent;
+        border: 7px solid transparent;
     }
     .scroll {
         max-height: 100%;

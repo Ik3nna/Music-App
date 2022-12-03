@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./pages/Home/home";
 import Header from "./components/header";
 import Album from "./pages/Albums/album";
+import PlayMusic from "./components/Music/playmusic";
 import Collection from "./pages/Collections/collections";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Navigate replace to="/home" />} />
         </Routes>
         
+        <PlayMusic />
       </BrowserRouter>
     </>  
   );
