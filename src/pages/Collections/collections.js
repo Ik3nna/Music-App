@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import NavIcons from "../../components/Hero-section/Nav-icons";
 import { useGlobalContext } from "../../components/context";
 import styles from "./collections.module.css";
-import { Play } from "iconsax-react";
 
 function Collection () {
     const { likes, collections } = useGlobalContext();
@@ -34,24 +34,22 @@ function Collection () {
                         likes.map((like)=>{
                             const { id, cover, files, title } = like;
                             return(
-                                <div key={id} className={styles.likes}>
+                                <Link to={`/album/${id}`} key={id} className={styles.likes}>
                                     <img src={cover} alt ={title} />
                                     <p>{title}</p>
                                     <p>{files[0].artist}</p>
-                                    <Play className={styles.play} variant="Bold" size="24" color="#FACD66" />
-                                </div>
+                                </Link>
                             );
                         }) 
                         : 
                         collections.map((col)=>{
                             const { id, cover, files, title } = col;
                             return(
-                                <div key={id} className={styles.collections}>
+                                <Link to={`/album/${id}`} key={id} className={styles.collections}>
                                     <img src={cover} alt ={title} />
                                     <p>{title}</p>
                                     <p>{files[0].artist}</p>
-                                    <Play className={styles.play} variant="Bold" size="24" color="#FACD66" />
-                                </div>
+                                </Link>
                             );
                         })
                     }

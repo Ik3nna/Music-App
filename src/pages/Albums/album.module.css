@@ -110,6 +110,12 @@
     margin: auto;
     position: relative;
 }
+.active img {
+    border: 4px solid var(--activeLink);
+}
+.active div {
+    color: var(--activeLink) !important;
+}
 .playBtn article {
     display: flex;
     max-width: 100%;

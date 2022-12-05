@@ -309,7 +309,7 @@ export const AppProvider = ({ children })=>{
     // update timer and forward range
     useEffect(() => {
       setTimeout(updateRange, 400);
-    }, [isPlaying, audioRef.current?.currentTime]);
+    }, [isPlaying, audioRef.current?.currentTime, updateRange]);
 
 
 // Likes
@@ -317,11 +317,11 @@ export const AppProvider = ({ children })=>{
         if (likes.find((item)=> item.id === playlist.id)) {
             const newLikes = likes.filter((item)=>item.id !== playlist.id);
             setLikes(newLikes);
-            localStorage.setItem("my-collection", JSON.stringify(newLikes));
+            localStorage.setItem("my-likes", JSON.stringify(newLikes));
         } else {
             const newLikes = [...likes, playlist] 
             setLikes(newLikes)
-            localStorage.setItem("my-collection", JSON.stringify(newLikes));
+            localStorage.setItem("my-likes", JSON.stringify(newLikes));
         }
     }
 

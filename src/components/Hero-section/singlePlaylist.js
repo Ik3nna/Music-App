@@ -8,7 +8,6 @@ function Playlist ({ id, data, title, cover, files }) {
     const { addToLikes, likes } = useGlobalContext();
     const [love, setLove] = useState(likes.find((item)=>item.id === id));
     
-
     const handleLikes = ()=>{
         addToLikes(data);
         setLove(!love);
