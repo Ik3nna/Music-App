@@ -278,6 +278,12 @@
         width: 96%;
     }
 }
+@media (max-width: 313px) {
+    .container article:nth-of-type(1) {
+        max-height: 380px;
+        height: 100%;
+    }
+}
 
 
 

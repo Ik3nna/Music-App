@@ -95,6 +95,82 @@
     width: 160px;
     background-size: 100% 100%;
     height: 3px;
+    margin-right: 0;
 }
 
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+    .forward input[type='range'] {
+        width: 549px;
+    }
+    .volume input[type="range"] {
+        width: 150px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .controls button {
+        margin-right: 20px;
+    }
+    .forward input[type='range'] {
+        width: 449px;
+    }
+    .volume input[type="range"] {
+        width: 140px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .deets img {
+        margin-right: 10px;
+    }
+    .forward {
+        top: 70%;
+    }
+    .forward input[type='range'] {
+        width: 340px;
+    }
+    .volume input[type="range"] {
+        width: 130px;
+    }
+}
+@media (max-width: 767px) {
+    .deets {
+        top: 20%;
+        position: absolute;
+    }
+    .deets img {
+        margin-right: 5px;
+        width: 50px;
+        height: 50px;
+    }
+    .deets p:nth-of-type(1) {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .deets p:nth-of-type(2) {
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .forward {
+        top: 80%;
+        width: 90%;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .controls {
+        right: 2%;
+        top: 25%;
+    }
+    .controls button {
+        margin-right: 7px;
+    }
+    .controls button:nth-of-type(1), .controls button:nth-of-type(5)  {
+        display: none;
+    }
+    .controls button:nth-of-type(3) {
+        padding: 5px;
+    }
+    .volume {
+        display: none;
+    }
+}
   
