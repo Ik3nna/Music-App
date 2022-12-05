@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 const AppContext = React.createContext();
-const baseURL = "https://musica-api.onrender.com/";
+const baseURL = "https://musica-api.up.railway.app/";
 const prevLikes = JSON.parse(localStorage.getItem("my-likes"));
 const prevCol = JSON.parse(localStorage.getItem("my-collection"));
 
@@ -291,16 +291,16 @@ export const AppProvider = ({ children })=>{
       };
     
     // handling volume and forward change
-    const handleChange = (e, active) => {
+    const handleChange = (e, type) => {
         const target = e.target;
         const value = target.value;
     
-        if (active === "volume") {
+        if (type === "volume") {
           target.style.backgroundSize = value + "% 100%";
           audioRef.current.volume = volume / 100;
           setVolume(value);
         } 
-        else if (active === "forward") {
+        else if (type === "forward") {
           setForward(value);
           updateRange(value);
         }
