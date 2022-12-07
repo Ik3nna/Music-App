@@ -22,9 +22,9 @@ Users should be able to:
 
 ### Screenshot
 
-![screencapture-localhost-3000-home-2022-12-07-16_30_04](https://user-images.githubusercontent.com/101594456/206225980-d10f7035-2880-4853-bf9a-905f1308607b.png)
-
 ![screencapture-localhost-3000-home-2022-12-07-16_29_32](https://user-images.githubusercontent.com/101594456/206226044-d67ef30e-adca-4dae-b249-6fbaf99b503e.png)
+
+![screencapture-localhost-3000-home-2022-12-07-16_30_04](https://user-images.githubusercontent.com/101594456/206225980-d10f7035-2880-4853-bf9a-905f1308607b.png)
 
 ### Links
 
