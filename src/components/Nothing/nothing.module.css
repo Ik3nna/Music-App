@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.container h2 {
+    color: var(--mainTexts);
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+.container a {
+    background: var(--activeLink);
+    color: var(--navBackground);
+    padding: 10px;
+    border-radius: 10px;
+}
+.container a:hover {
+    transform: scale(0.9);
+}
