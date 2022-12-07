@@ -5,6 +5,7 @@ import NavIcons from "../../components/Hero-section/Nav-icons";
 import SingleAlbum from "./singlealbum";
 import { Heart, MusicSquareAdd, PlayCircle, ArrowLeft } from "iconsax-react";
 import styles from "./album.module.css";
+import { motion } from "framer-motion";
 
 function Album() {
     const { id } = useParams();
@@ -41,7 +42,12 @@ function Album() {
     },0);
 
     return(
-        <main className={styles.main} style={{
+        <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
+            className={styles.main} style={{
             backgroundImage: `url(${cover})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover", 
@@ -95,7 +101,7 @@ function Album() {
                     )
                 })}
             </section>
-        </main>
+        </motion.main>
     );
 }
 

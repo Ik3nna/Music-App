@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NavIcons from "../../components/Hero-section/Nav-icons";
 import { useGlobalContext } from "../../components/context";
 import styles from "./collections.module.css";
+import { motion } from "framer-motion";
 
 function Collection () {
     const { likes, collections } = useGlobalContext();
@@ -20,7 +21,12 @@ function Collection () {
     }
 
     return(
-        <main>
+        <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
+        >
             <section className={styles.container}>
                 <NavIcons />
 
@@ -55,7 +61,7 @@ function Collection () {
                     }
                 </article>
             </section>
-        </main>
+        </motion.main>
     );
 }
 

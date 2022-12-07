@@ -8,6 +8,7 @@ import Radio from "./pages/Radio/radio";
 import Video from "./pages/Video/video";
 import Profile from "./pages/Profile/profile";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
 
@@ -15,17 +16,19 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/collections" element={<Collection />} />
-          <Route path="/album/:id" element={<Album />} />
-          <Route path="/radio" element={<Radio />} />
-          <Route path="/video" element={<Video />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/" element={<Navigate replace to="/home" />} />
-        </Routes>
-        
+          
+        <AnimatePresence onExitComplete>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/collections" element={<Collection />} />
+            <Route path="/album/:id" element={<Album />} />
+            <Route path="/radio" element={<Radio />} />
+            <Route path="/video" element={<Video />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/" element={<Navigate replace to="/home" />} />
+          </Routes>
+        </AnimatePresence>
+          
         <PlayMusic />
       </BrowserRouter>
     </>  

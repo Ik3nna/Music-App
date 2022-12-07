@@ -5,7 +5,8 @@ import Popular from "../../components/Popular-section/popular";
 import Found from "./found";
 import NavIcons from "../../components/Hero-section/Nav-icons";
 import styles from "./home.module.css";
-import { useGlobalContext } from "../../components/context"
+import { useGlobalContext } from "../../components/context";
+import { motion } from "framer-motion";
 
 function Home () {
     const { openSearch,searchData } = useGlobalContext();
@@ -32,11 +33,11 @@ function Home () {
     }
 
     return(
-        <>
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }}>
             <Main />
             <Release />
             <Popular />
-        </>
+        </motion.main>
     );
 }
 
