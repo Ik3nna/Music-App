@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 const AppContext = React.createContext();
-const baseURL = "https://musica-api.up.railway.app/";
+const baseURL = "https://musica-api.onrender.com/";
 const prevLikes = JSON.parse(localStorage.getItem("my-likes"));
 const prevCol = JSON.parse(localStorage.getItem("my-collection"));
 
