@@ -22,6 +22,8 @@ Users should be able to:
 
 ### Screenshot
 
+![screencapture-localhost-3000-home-2022-12-07-16_29_32](https://user-images.githubusercontent.com/101594456/206226044-d67ef30e-adca-4dae-b249-6fbaf99b503e.png)
+
 
 ### Links
 
