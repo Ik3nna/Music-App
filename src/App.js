@@ -7,10 +7,24 @@ import Collection from "./pages/Collections/collections";
 import Radio from "./pages/Radio/radio";
 import Video from "./pages/Video/video";
 import Profile from "./pages/Profile/profile";
+import { InfinitySpin } from "react-loader-spinner";
+import { useGlobalContext } from "./components/context";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const { loading } = useGlobalContext();
+
+  if (loading) {
+    return(
+      <div className="spinner">
+        <InfinitySpin 
+          width='200'
+          color="#4fa94d"
+        />
+      </div>
+    )
+  }
 
   return (
     <>

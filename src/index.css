@@ -40,6 +40,12 @@ button {
   cursor: pointer;
   background: none;
 }
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40vh;
+}
 
 
 /* Header */

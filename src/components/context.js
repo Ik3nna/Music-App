@@ -7,6 +7,7 @@ const prevCol = JSON.parse(localStorage.getItem("my-collection"));
 
 export const AppProvider = ({ children })=>{
     const [active, setActive] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [newRelease,setNewRelease] = useState([]);
     const [popular,setPopular] = useState([]);
     const [playlist,setPlaylist] = useState([]);
@@ -28,44 +29,46 @@ export const AppProvider = ({ children })=>{
 
 // Consumption of API
     const fetchData = (type)=>{
-        fetch(baseURL + type)
-        .then(response => {
-            if (response.ok) {
-              return response;
-            }
-            else {
-              let error = new Error("Error " + response.status + ": " + response.statusText);
-              error.response = response;
-              throw error;
-            }
-          }, error => {
-            let errmess = new Error(error.message);
-            throw errmess;
-          })
-        .then(response => response.json())
-        .then(data =>{
-            if (type === "new") {
-              setNewRelease(data);
-              setPlaying(data[0]);
-              setMusics(data);
-            }
-            if (type === "popular") {
-              setPopular(data);
-            }
-            if (type === "playlist") {
-              setPlaylist(data);
-            }
-        })
-        .catch(error =>{
-            console.log(error.message)
-        })
-    }
+      setLoading(true);
+      fetch(baseURL + type)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        }
+        else {
+          let error = new Error("Error " + response.status + ": " + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      }, error => {
+        let errmess = new Error(error.message);
+        throw errmess;
+      })
+      .then(response => response.json())
+      .then(data =>{
+        if (type === "new") {
+          setNewRelease(data);
+          setPlaying(data[0]);
+          setMusics(data);
+        }
+        if (type === "popular") {
+          setPopular(data);
+        }
+        if (type === "playlist") {
+          setPlaylist(data);
+        }
+        setLoading(false);
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
+  }
 
-    useEffect(()=>{
-        fetchData("new");
-        fetchData("popular");
-        fetchData("playlist");
-    },[]);
+  useEffect(()=>{
+    fetchData("new");
+    fetchData("popular");
+    fetchData("playlist");
+  },[]);
 
 
 // Search for songs
@@ -343,7 +346,7 @@ export const AppProvider = ({ children })=>{
             active, setActive, newRelease, popular, playlist, likes, collections, addToLikes, addToCollection,
             searchMusic, closeSearch, openSearch, searchData, searchText, setSearchText, forward, volume,
             handleChange, playing, nextMusic, prevMusic, audioRef, isPlaying, handlePlay, isRepeat, isShuffle,
-            handleRepeat, handleShuffle, selectMusic, forwardRef, timer
+            handleRepeat, handleShuffle, selectMusic, forwardRef, timer, loading
         }}>
             {children}
         </AppContext.Provider>
