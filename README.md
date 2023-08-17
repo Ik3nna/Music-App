@@ -18,6 +18,7 @@ Users should be able to:
 
 - View the optimal layout for each of the website's pages depending on their device's screen size
 - Make use of the music app controller (play, pause, next, previous, shuffle, repeat etc.)
+- Search for a particular song
 - See hover states for all interactive elements on the page
 
 ### Screenshot
