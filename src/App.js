@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Home from "./pages/Home/home";
 import Header from "./components/header";
 import Album from "./pages/Albums/album";
@@ -7,20 +7,31 @@ import Collection from "./pages/Collections/collections";
 import Radio from "./pages/Radio/radio";
 import Video from "./pages/Video/video";
 import Profile from "./pages/Profile/profile";
-import { InfinitySpin } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 import { useGlobalContext } from "./components/context";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
   const { loading } = useGlobalContext();
+  const [showSpinner, setShowSpinner] = useState(false);
 
-  if (loading) {
+  if (!showSpinner) {
+    return (
+      <>
+        <button onClick={()=>setShowSpinner(true)}>Press me</button>
+      </>
+    )
+  }
+
+  if (loading && showSpinner) {
     return(
       <div className="spinner">
-        <InfinitySpin 
-          width='200'
-          color="#4fa94d"
+        <MutatingDots 
+          visible={true}
+          height="100"
+          width="100"
+          color="#FACD66"
         />
       </div>
     )
