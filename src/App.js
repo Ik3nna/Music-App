@@ -14,17 +14,8 @@ import { AnimatePresence } from "framer-motion";
 
 function App() {
   const { loading } = useGlobalContext();
-  const [showSpinner, setShowSpinner] = useState(false);
 
-  if (!showSpinner) {
-    return (
-      <>
-        <button onClick={()=>setShowSpinner(true)}>Press me</button>
-      </>
-    )
-  }
-
-  if (loading && showSpinner) {
+  if (loading) {
     return(
       <div className="spinner">
         <MutatingDots 
