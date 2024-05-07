@@ -57,10 +57,12 @@ export const AppProvider = ({ children })=>{
         if (type === "playlist") {
           setPlaylist(data);
         }
-        setLoading(false);
       })
       .catch(error =>{
         console.log(error.message)
+      })
+      .finally(()=>{
+        setLoading(false);
       })
   }
 
