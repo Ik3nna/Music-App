@@ -13,7 +13,7 @@ function PlayMusic () {
 
     useEffect(() => {
         if (playing) {
-          setPlayingNow(playing);
+            setPlayingNow(playing);
         }
     }, [playing]);
 

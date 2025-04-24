@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Home from "./pages/Home/home";
 import Header from "./components/header";
 import Album from "./pages/Albums/album";
@@ -14,14 +14,19 @@ import { AnimatePresence } from "framer-motion";
 
 function App() {
   const { loading } = useGlobalContext();
+  const hasMounted = useRef(false);
 
   useEffect(() => {
     let interval;
 
-    if (!loading) {
-      interval = setInterval(() => {
-        window.location.reload();
-      }, 5000);
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+
+      if (!loading) {
+        interval = setInterval(() => {
+          window.location.reload();
+        }, 5000);
+      }
     }
 
     if (loading && interval) {
