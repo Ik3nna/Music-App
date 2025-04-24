@@ -13,32 +13,36 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
-  const { loading } = useGlobalContext();
+  const { newRelease, popular, playlist } = useGlobalContext();
   const hasMounted = useRef(false);
+  const reloadTimeout = useRef(null);
+  const dataIsMissing = !newRelease || newRelease.length === 0 || !popular || popular.length === 0 || !playlist || playlist.length === 0
 
   useEffect(() => {
-    let interval;
-
     if (!hasMounted.current) {
       hasMounted.current = true;
 
-      if (!loading) {
-        interval = setInterval(() => {
+      reloadTimeout.current = setTimeout(() => {
+        if (dataIsMissing) {
           window.location.reload();
-        }, 5000);
+        }
+      }, 5000);
+    }
+
+    if (!dataIsMissing && reloadTimeout.current) {
+      clearTimeout(reloadTimeout.current);
+    }
+
+    return () => {
+      if (reloadTimeout.current) {
+        clearTimeout(reloadTimeout.current);
       }
-    }
-
-    if (loading && interval) {
-      clearInterval(interval);
-    }
-
-    return () => clearInterval(interval);
-  }, [loading]);
+    };
+  }, [dataIsMissing]);
 
   return (
     <>
-      {loading ?
+      {dataIsMissing ?
         <div className="spinner">
           <MutatingDots 
             visible={true}
